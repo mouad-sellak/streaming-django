@@ -99,10 +99,15 @@ LOGIN_URL = "account_login"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'streamingdb',
+        'USER': 'postgres',
+        'PASSWORD': 'postgre123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 AUTHENTICATION_BACKENDS = [ 
