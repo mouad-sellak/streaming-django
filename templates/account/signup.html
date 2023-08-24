@@ -1,0 +1,48 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+<h1 style="font-size: 20px; font-weight:bold; color: slateblue; margin-top: 50px;">{% trans "Sign Up" %}</h1>
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+      <div class="container">
+        <div class="myCard">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="myLeftCtn">
+                <div class="box">
+                  <header>  Bienvenue sur Streaming  </header>
+                  <p class="text-white">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="myRightCtn" >
+                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" style="margin-top: 0px;">
+                  <header > <h1> Inscription </h1> </header>
+                  {% csrf_token %}
+                  <!-- {{ form.as_p }} -->
+                  <div class="">
+                  {{ form | crispy }}
+                </div>
+                  {% if redirect_field_value %}
+                  <input style="size: 50px;" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  <!-- <i:nput style="size: 50px;" type="hidden" name="complet_inscription" value="{{ redirect_field_value }}" /> -->
+                  {% endif %}
+                  <button type="submit"> {% trans 'Sign Up' %} </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

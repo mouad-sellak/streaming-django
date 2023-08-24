@@ -1,0 +1,42 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+{% include "socialaccount/snippets/login_extra.html" %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+  <div class="myCard">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="myLeftCtn">
+          <div class="box">
+            <header>  Bienvenue sur Streaming  </header>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="myRightCtn" > 
+          <form method="post" action="{% url 'account_logout' %}" style="margin-top: 130px;">
+            <header ><h1>{% trans "Sign Out" %}</h1> </header>
+
+          <p>{% trans 'Are you sure you want to sign out?' %}</p>
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button type="submit">{% trans 'Sign Out' %}</button>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

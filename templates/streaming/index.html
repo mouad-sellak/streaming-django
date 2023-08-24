@@ -1,0 +1,1453 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<!-- deplacer imput recherche vers l'a droit -->
+<!-- page recherche avec sidbad ,augmenter lespace entre les image, footerbar,  -->
+<!-- tous les modification du profil dans meme page  -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Streaming - Dashboard</title>
+    <!-- fontawesone icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylsheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href='{% static "/css/sb-admin-2.min.css" %}'/>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href='{% static "/OwlCarousel/dist/assets/owl.carousel.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/OwlCarousel/dist/assets/owl.theme.default.min.css" %}'>
+    <link rel="stylesheet" href='{% static "/OwlCarousel/scripts.js" %}'>
+    <link rel="stylesheet" href='{% static "/OwlCarousel/dist/owl.carousel.min.js" %}'>
+    <script src="{% static 'fontawesomepro/js/all.min.js' %}"></script>
+
+
+    <script src={% static '' %}> </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" 
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" 
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+</head>
+
+<!-- // TODO -->
+<!--// send a request to the backend to get the element to be shown -->
+<!--// generate divs using javascript and a for loop with the number of elements returned from the backend -->
+<!--// insert the divs in the container-->
+<!--// bootstrap card no wrap -->
+<!--// container horizontal-scrollable -->
+
+
+<body id="page-top" class="bg-dark">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- SCRIPT  -->
+    <!-- JQUERY  -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <!-- OWL CAROUSEL  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" 
+  integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+  <!-- <script type="text/JavaScript"> 
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+  </script> -->
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <style>
+        #accordionSidebar{
+            margin-bottom: 0%;
+            background-color: #020314;
+            min-width: 180px;
+            max-width: 180px;
+            min-height: 100vh;
+        }
+        .sidebar{
+            width: 10%;
+        }
+        
+
+        </style>
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand bg-gradient-secondary d-flex align-items-center justify-content-center" href="#">
+                <div class="sidebar-brand-icon ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-tv" viewBox="0 0 16 16">
+                        <path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
+                      </svg>
+                </div>
+                <div class="sidebar-brand-text mx-3">Streaming </div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                      </svg>
+                    <span> Accueil </span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span> Paramètre </span>
+                </a>
+                
+            </li> -->
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'profil_detail' %}" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
+                    <span> Profil </span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    
+                </div>
+            </li>
+
+            
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'list_favourite' %}" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                        <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+                      </svg>
+                    <span> Mes favorites </span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'list_watchLater' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                        <path  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                      </svg>
+                    <span>À regarder plus tard</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                      </svg>
+                    <span> Déconnexion</span></a>
+            </li>
+
+            
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <style>
+            .d-flex{
+                background-color : blue;
+            }
+            .user{
+                cursor: pointer;
+                color: #020314;
+                margin-top: 10px;
+                margin-right: 20px;
+                
+            }
+            
+            
+        </style>
+        <div id="content-wrapper" class="d-flex flex-column main text-white" style="background-color: #00010c;" >
+
+            <!-- Main Content -->
+            <div id="content"> 
+                    
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light topbar static-top shadow " style="background-color: #020314;">
+                        <!-- <div class="user float-right">
+                            <i class="fa-solid fa-bell"></i>
+                        </div> -->
+                        <!-- Topbar Search -->
+                        <!-- .mr-auto ml-md-3 my-2 my-md-0 mw-100 -->
+                        <!-- navbar-form col-lg-4 mx-lg-auto order-lg-first mb-0 -->
+
+                    <div class="float-end " style="width: 100%; text-align:-webkit-right;">
+                        <form action="{% url 'search_video' %}"
+                            class="  navbar-search" id="recherche" method="GET">
+                            <div class="input-group mb-0">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                    aria-label="Search" aria-describedby="basic-addon2" name="q" value="{{request.GET.q}}">
+                                <div class="input-group-append">
+                                    <button class="btn " type="submit" >
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button> 
+                                </div> 
+                                <div+++>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button> -->
+
+                    
+                    </nav>
+
+                        <style>
+                            #recherche {
+                                overflow: hidden;
+                            }
+                            #recherche input {
+                            float: right;
+                            clear: both;
+                            }
+                            .btn{
+                                background-color: rgba(197, 206, 216, 0.5);
+                            }
+                        </style>
+
+                        
+
+                        
+                    </nav>
+                    
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small"
+                                                placeholder="Search for..." aria-label="Search"
+                                                aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
+                            <!-- Nav Item - Alerts -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                
+                                <!-- Dropdown - Alerts -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="alertsDropdown">
+                                    <h6 class="dropdown-header">
+                                        Alerts Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-file-alt text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 12, 2019</div>
+                                            <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-donate text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 7, 2019</div>
+                                            $290.29 has been deposited into your account!
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="small text-gray-500">December 2, 2019</div>
+                                            Spending Alert: We've noticed unusually high spending for your account.
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                </div>
+                            </li>
+
+                            <!-- Nav Item - Messages -->
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="messagesDropdown">
+                                    <h6 class="dropdown-header">
+                                        Message Center
+                                    </h6>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                                alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div class="font-weight-bold">
+                                            <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                                problem I've been having.</div>
+                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                                alt="...">
+                                            <div class="status-indicator"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">I have the photos that you ordered last month, how
+                                                would you like them sent to you?</div>
+                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                                alt="...">
+                                            <div class="status-indicator bg-warning"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Last month's report looks great, I am very happy with
+                                                the progress so far, keep up the good work!</div>
+                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                                alt="...">
+                                            <div class="status-indicator bg-success"></div>
+                                        </div>
+                                        <div>
+                                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                                told me that people say this to all dogs, even if they aren't good...</div>
+                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                </div>
+                            </li>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Settings
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Activity Log
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                </nav>
+
+
+                <!-- <section id="upcomingMovies">
+                     <div class="Container">
+                        <h2> UpcomingMovies</h2>
+                        <div class="row Movies">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="row Movies">
+                                   <div class="clo-6"><a href="#"><img src="{% static 'img/action1.jpg' %}"></a></div>
+                                   <div class="clo-6"><a href="#"><img src="{% static 'img/action.jpg' %}"></a></div>
+                                </div> 
+                           </div>
+                           <div class="col-lg-3 col-md-4 col-sm-6">
+                               <div class="row Movies">
+                                  <div class="clo-6"><a href="#"><img src="{% static 'img/action2.jpg' %}"></a></div>
+                                  <div class="clo-6"><a href="#"><img src="{% static 'img/action.jpg' %}"></a></div>
+                               </div>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="row Movies">
+                                <div class="clo-6"><a href="#"><img src="{% static 'img/action1.jpg' %}"></a></div>
+                                <div class="clo-6"><a href="#"><img src="{% static 'img/action2.jpg' %}"></a></div>
+                             </div>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="row Movies">
+                                <div class="clo-6"><a href="#"><img src="{% static 'img/action1.jpg' %}"></a></div>
+                                <div class="clo-6"><a href="#"><img src="{% static 'img/action2.jpg' %}"></a></div>
+                             </div>
+                          </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="TopRatedMovies">
+                    <div class="Container">
+                       <h2> Top Rated Movies</h2>
+                       <div class="row Movies">
+                           <div class="col-lg-4 col-md-4 col-sm-6">
+                               <div class="row Movies">
+                                  <div class="clo-6"><a href="#"><img src="{% static 'img/action1.jpg' %}"></a></div>
+                                  <div class="clo-6"><a href="#"><img src="{% static 'img/action.jpg' %}"></a></div>
+                               </div> 
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-6">
+                              <div class="row Movies">
+                                 <div class="clo-6"><a href="#"><img src="{% static 'img/action2.jpg' %}"></a></div>
+                                 <div class="clo-6"><a href="#"><img src="{% static 'img/action.jpg' %}"></a></div>
+                              </div>
+                         </div>
+                         <div class="col-lg-4 col-md-4 col-sm-6">
+                           <div class="row Movies">
+                               <div class="clo-6"><a href="#"><img src="{% static 'img/action1.jpg' %}"></a></div>
+                               <div class="clo-6"><a href="#"><img src="{% static 'img/action2.jpg' %}"></a></div>
+                            </div>
+                         </div>
+                       </div>
+                   </div>
+               </section> -->
+
+               <style>
+                
+               </style>
+               
+
+
+
+               <style>
+                :root{
+                    --space-top: 30px;
+                    --main-color: #020314;
+                    --text-color: #ffffff;
+                }
+                .item-action .btn {
+                    color: #ffffff;
+                    padding: .25rem 1.5rem;
+                    text-transform: uppercase ;
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    display: inline-flex;
+                    position: relative;
+                    align-items: center;
+                }
+
+                .btn-hover::before {
+                    z-index: 1;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    height: 100%;
+                    background-color: var(--main-color);
+                    transition: 0.3s ease-in-out;
+                }
+                .btn-hover:hover::before {
+                    width: 100%;
+                }
+                .item-action .btn i,
+                .item-action .btn span {
+                    z-index: 1;
+                }
+                .item-action .btn i {
+                    margin-right: 1rem;
+                }
+
+
+                .hero-slide-item{
+                    padding-top: 40%;
+                    position: relative;  
+                    overflow: hidden;
+                    margin-bottom: 5px;
+                    
+                }
+                .hero-slide-item img {
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                .hero-slide-item-content {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    color: var(--text-color);
+                    display: flex;
+                }
+                .item-content-wraper{
+                    padding-left: 5rem;
+                    width: 40%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    position: relative;
+                }
+                .item-content-wraper::before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    width: 50%;
+                    height: 100%;
+                    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+                }
+                .item-content-title{
+                    font-size: 5rem;
+                    line-height: 5rem;
+                    font-weight: 900;
+                }
+                .movie-infos{
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: calc(var(--space-top) / 2);
+                }
+                .movie-info{
+                    display: flex;
+                    align-items: center;
+                    font-size: -8rem;
+                    font-weight: 600;
+                }
+                .movie-info span{
+                    margin-left: 5px;
+                }
+                .movie-info i{
+                    color: var(--main-color);
+                }
+                .movie-info ~ .movie-info{
+                    margin-left: 5px;
+                }
+                .item-content-description{
+                    font-size: 1.15rem;
+                    margin-top: var(--space-top);
+                    line-height: 1.5rem;
+                }
+                .item-action {
+                    margin-top: var(--space-top);
+                }
+                .carousel-nav-center{
+                    position: relative;
+                }
+                .carousel-nav-center .owl-nav button i {
+                    font-size: 3rem;
+                }
+                .carousel-nav-center .owl-nav button {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .carousel-nav-center .owl-nav .owl-prev {
+                    position: absolute;
+                    left: 5px;
+                }
+                .carousel-nav-center .owl-nav .owl-next {
+                    position: absolute;
+                    right: 5px;
+                }
+                .owl-nav button {
+                    border: none;
+                    outline: none;
+                }
+                .owl-nav button i {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    border-radius: 50%;
+                }
+                .owl-nav button:hover i {
+                    color: var(--main-color);
+                }
+                .top-down {
+                    transform: translateY(-50px);
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: 0.5s ease-in-out;
+                }
+                .delay-2{
+                    transition-delay: 0.2s;
+                }
+                .delay-4{
+                    transition-delay: 0.4s;
+                }
+                .delay-6{
+                    transition-delay: 0.6s;
+                }
+                .delay-8{
+                    transition-delay: 0.8s;
+                }
+                .owl-item.active .top-down {
+                    transform: translateY(0);
+                    visibility: visible;
+                    opacity: 1;
+                }
+               </style>
+
+              <script>
+                $(document).ready(() => {
+                    let navText = ["<i class='fa fa-chevron-left'></i>",
+                    "<i class='fa fa-chevron-right'></i>"]
+
+                    $('#hero-carousel').owlCarousel({
+                        items: 1,
+                        dots: false,
+                        loop: true,
+                        nav: true,
+                        navText: navText,
+                        autoplayHoverPause: true,
+                    })
+                })
+               </script>
+
+               <!-- Hero Section -->
+               <!-- class="hero-section" -->
+            <div >
+                <div class="hero-slide">
+                    <div class="owl-carousel carousel-nav-center" id="hero-carousel">
+                        <!-- SLIDE ITEM -->
+                        <div class="hero-slide-item">  
+                            <img src="./media/image/22/%D9%85%D8%B3%D9%84%D8%B3%D9%84_%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D8%A8%D8%A9.jpg" alt="">
+                            <div class="overlay"></div>
+                            <div class="hero-slide-item-content">
+                                <div class="item-content-wraper">
+                                    <div class="item-content-title">
+                                        Le gang
+                                    </div>
+                                    <div class="movie-infos">
+                                        <div class="movie-info">
+                                            <i class="bx bxs-star"> </i>
+                                            <span>9.5</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <i class="bx bxs-time"> </i>
+                                            <span>25 mins</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>HD</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>16+</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content-description">
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                    </div>
+                                    <div class="item-action">
+                                        <a href="http://127.0.0.1:8000/episode/5" class="btn btn-hover">
+                                              <i class="bx bxs-right-arrow"></i>
+                                              <span>Watch now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SLIDE ITEM -->
+                        <!-- SLIDE ITEM -->
+                        <div class="hero-slide-item">   
+                            <img src="./media/image/22/cherit.jpg" alt=""> 
+                            <div class="overlay"></div>
+                            <div class="hero-slide-item-content">
+                                <div class="item-content-wraper">
+                                    <div class="item-content-title">
+                                        AZAWAN
+                                    </div>
+                                    <div class="movie-infos">
+                                        <div class="movie-info">
+                                            <i class="bx bxs-star"> </i>
+                                            <span>9.5</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <i class="bx bxs-time"> </i>
+                                            <span>120 mins</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>HD</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>16+</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content-description">
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                    </div>
+                                    <div class="item-action">
+                                        <a href="http://127.0.0.1:8000/music/6" class="btn btn-hover">
+                                              <i class="bx bxs-right-arrow"></i>
+                                              <span>Watch now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SLIDE ITEM -->
+                        <!-- SLIDE ITEM -->
+                        <div class="hero-slide-item">   
+                            <img src="./media/image/22/chinguetti.jpg" alt=""> 
+                            <div class="overlay"></div>
+                            <div class="hero-slide-item-content">
+                                <div class="item-content-wraper">
+                                    <div class="item-content-title">
+                                        Le temple du savoir
+                                    </div>
+                                    <div class="movie-infos">
+                                        <div class="movie-info">
+                                            <i class="bx bxs-star"> </i>
+                                            <span>9.5</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <i class="bx bxs-time"> </i>
+                                            <span>120 mins</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>HD</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>16+</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content-description">
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                    </div>
+                                    <div class="item-action">
+                                        <a href="http://127.0.0.1:8000/documentaire/7" class="btn btn-hover">
+                                              <i class="bx bxs-right-arrow"></i>
+                                              <span>Watch now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SLIDE ITEM -->
+                        <!-- SLIDE ITEM -->
+                        <div class="hero-slide-item">   
+                            <img src="./media/image/22/garmi-ahlami.jpg" alt=""> 
+                            <div class="overlay"></div>
+                            <div class="hero-slide-item-content">
+                                <div class="item-content-wraper">
+                                    <div class="item-content-title">
+                                        AHLAMI
+                                    </div>
+                                    <div class="movie-infos">
+                                        <div class="movie-info">
+                                            <i class="bx bxs-star"> </i>
+                                            <span>9.5</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <i class="bx bxs-time"> </i>
+                                            <span>120 mins</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>HD</span>
+                                        </div>
+                                        <div class="movie-info">
+                                            <span>16+</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content-description">
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                        Decription sur la video Decription sur la video Decription sur la video
+                                    </div>
+                                    <div class="item-action">
+                                        <a href="http://127.0.0.1:8000/music/2" class="btn btn-hover">
+                                              <i class="bx bxs-right-arrow"></i>
+                                              <span>Watch now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SLIDE ITEM -->
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- Hero Section -->
+
+
+
+
+                <style>
+                    .container{
+                        max-height: 460px;
+                        border: 1px ;
+                        display: flex;
+                        overflow-x: auto;
+                      }
+                      h2{
+                        margin-left: 2px;
+                      }
+                      
+                      .container .col{
+                        min-width: 250px;
+                        height: 250px;
+                        text-align: center;
+                      }
+                      
+                </style>
+
+
+
+
+
+<!-- ------------------ add favorite and watch later ------------------------>
+<style>
+    .movies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .movie-card {
+        --scale: 0.8;
+        cursor: pointer;
+    }
+    .movie-card .card-head {
+        position: relative;
+        height: 250px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        overflow: hidden;
+    }
+
+    .movie-card:hover .card-img { transform: scale(1.1); }
+
+    .movie-card .card-overlay {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        /* backdrop-filter: blur(5px); */
+    }
+
+    .movie-card:hover .card-overlay { opacity: 1;}
+
+    .movie-card .bookmark,
+    .movie-card .rating {
+        position: absolute;
+        top: 15px;
+        padding: 6px;
+        border-radius: 10px;
+        color: var(--light-azuze);
+        transform: scale(var(--scale));
+    }
+    .movie-card .bookmark {
+        background: var(--oxford-blue);
+        left: 15px;
+        color: #fff;
+    }
+    .movie-card .bookmark:hover { color: var(--yellow); }
+
+    .movie-card .rating {
+        display: flex;
+        align-items: center;
+        right: 15px;
+        background: var(--oxford-blue-50);
+    }
+    .movie-card .rating span {
+        color: var(--white);
+        font-size: 13px;
+        font-weight: var(--fw-5);
+        margin-left: 5px;
+    }
+    .movie-card i {
+        font-size: 16px;
+        display: block;
+        --ionicon-stroke-width: 50px;
+    }
+
+    .movie-card .play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(var(--scale));
+    }
+    .movie-card .play i {
+        font-size: 60px;
+        /* --ionicon-stroke-width: 50px; */
+    }
+    .movie-card:hover :is(.bookmark, .rating, .play){ --scale: 1; }
+
+    .movie-card .card-title {
+        font-size: var(--fs-md);
+        font-weight: var(--fw-5);
+        margin-bottom: 5px;
+    }
+    .movie-card:hover .card-title { color: var(--light-azuze); }
+
+    .movie-card .card-info {
+        display: flex;
+        font-size: var(--fs-x-sm);
+        font-weight: var(--fw-5);
+    }
+    
+    .movie-card .genre { margin-right: 8px; }
+
+
+    
+    .Container{
+        margin: 0% 2% 2% 2%;
+                        
+    }
+    .Movies img{
+        margin-right: 1%;
+        margin-bottom: 3%;
+        margin-top: 3%;
+        width:  120px;
+        height: 120px;
+        border-radius: 6px;
+        cursor: pointer;
+        box-shadow: -4px 4px 5px 0 #000;
+        transition: 0.8s;
+    }
+    /* mouvment d'image */
+    .Movies img:hover{
+        transform: translateY(-10px);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+    
+    .col{
+        width: 130px;
+        height: 152px;
+        display: inline-block;
+
+    }
+    .Movies {
+        overflow-y: auto;
+        /* overflow-x: scroll; */
+        display: block;
+        /* overflow-x: auto; */
+        white-space: nowrap;
+        /* overflow-x: hidden; */
+    }
+    .Movies::-webkit-scrollbar {
+        display: none;
+    }
+    #upcomingMovies{
+        margin-top: 0%;
+    }
+    .Container h2{
+        color: #ffffff;
+        font-size: 19px;
+    }
+    .card-title{
+        font-size: 12px;
+    }
+    .card-text{
+        font-size: 9px;
+    }
+    
+    .card-overlay {
+        /* position: absolute; */
+        inset: 0;
+        opacity: 0;
+        /* backdrop-filter: blur(5px); */
+    }
+
+    .Movies:hover .card-overlay { opacity: 1;}
+
+    .bookmark,
+    .rating {
+        position: absolute;
+        top: 15px;
+        padding: 6px;
+        border-radius: 10px;
+        color: var(--light-azuze);
+        transform: scale(var(--scale));
+    }
+    .bookmark {
+        background: var(--oxford-blue);
+        left: 15px;
+        color: #fff;
+    }
+    .bookmark:hover { color: var(--yellow); }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        right: 15px;
+        background: var(--oxford-blue-50);
+    }
+
+    
+</style>
+
+
+
+<script>
+    
+fetch('http://127.0.0.1:8000/listmusic/')
+  .then(response => response.json())
+  .then(data =>  {
+        console.log(data);
+        let data1="";
+        data.map((values)=>{
+            console.log(values);
+            data1+=` 
+            <div class="col " >
+            <a href='music/${values.id}'><img src="${values.image}"></a>
+                <div class="card-overlay">
+                    <div class="bookmark">
+                        <form method='POST' action="/add-watch-later/">
+                            {% csrf_token %}
+                            <input type='hidden' name='type' value="music">
+                            <input type='hidden' name='id' value=${values.id}>
+                            <button type="submit"  style=" background-color: transparent; border-color: #ccc; border:0px;">
+                                <i class="fa-solid fa-bookmark White-link"></i> </button>
+                        </form>
+                    </div>
+
+                    <div class="rating">
+                        <form method='POST' action="/add-favourite/">
+                            {% csrf_token %}
+                            <input type='hidden' name='type' value="music">
+                            <input type='hidden' name='id' value=${values.id}>
+                            <button type="submit"  style="background-color: transparent; border:0px;">
+                                <i class="fa-regular fa-star"></i> 
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            <h5 class='card-title text-center '>${values.title}</h5>
+            <p class='card-text text-center '>${values.chanteur}    </p>
+        </div>`;
+        })
+        document.getElementById("music").innerHTML=data1;
+
+    });
+        
+</script>
+
+
+
+<section id="upcomingMovies">
+    <div class="Container text-white">
+       <h2 > Music</h2>
+       <div class="row Movies"id="music">   
+       
+       </div>
+   </div>
+</section>
+            
+
+<!-- background color dark, diminer la taille des images  publicite  -->
+
+<!-- Film -->
+<script>
+    fetch('http://127.0.0.1:8000/listfilm/')
+      .then(response => response.json())
+      .then(data =>  {
+            console.log(data);
+            let data1="";
+            data.map((values)=>{
+                console.log(values);
+                data1+=`
+            <div class="col" >
+                <a href='film/${values.id}'><img src="${values.image}"></a>
+                <div class="card-overlay">
+
+                <div class="bookmark">
+                    <form method='POST' action="/add-watch-later/">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="film">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;">
+                            <i class="fa-solid fa-bookmark White-link"></i> 
+                        </button>
+                    </form>
+                    <!-- <ion-icon name="bookmark-outline"> </ion-icon> -->
+                </div>
+
+                <div class="rating">
+                    <form method='POST' action="/add-favourite/">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="film">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;"> 
+                            <i class="fa-regular fa-star"></i> 
+                        </button>
+                    </form>
+                    <!-- <ion-icon name="star-outline"> </ion-icon> -->    
+                </div>
+            </div>
+            <h5 class='card-title text-center'>${values.title}</h5>
+            <p class='card-text text-center'>${values.acteur}    </p>
+            </div>`;
+                    // console.log(data1);
+            })
+            document.getElementById("film").innerHTML=data1;
+        });
+            
+    </script>
+    <section id="upcomingMovies">
+        <div class="Container">
+           <h2> Film</h2>
+           <div class="row Movies" id="film">
+               
+           </div>
+       </div>
+    </section>
+
+
+<!-- episode -->
+<script>
+    fetch('http://127.0.0.1:8000/listepisode/')
+      .then(response => response.json())
+      .then(data =>  {
+            console.log(data);
+            let data1="";
+            data.map((values)=>{
+                console.log(values);
+                data1+=` 
+            <div class="col" >
+            <a href='episode/${values.id}'><img src="${values.image}"></a>
+            <div class="card-overlay">
+                <div class="bookmark">
+                    <form method='POST' action="/add-watch-later/ ">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="episode">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;">
+                            <i class="fa-solid fa-bookmark White-link"></i> 
+                        </button>
+                    </form>
+                </div>
+
+                <div class="rating">
+                    <form method='POST' action="/add-favourite/">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="episode">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;"> 
+                            <i class="fa-regular fa-star"></i> 
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <h5 class='card-title text-center '>${values.title}</h5>
+            <p class='card-text text-center '>${values.Chaine}</p>
+                    </div>`;
+                    // console.log(data1);
+            })
+            document.getElementById("episode").innerHTML=data1;
+        });
+            
+    </script>
+
+    <section id="upcomingMovies">
+        <div class="Container">
+           <h2> Série</h2>
+           <div class="row Movies" id="episode">
+               
+           </div>
+       </div>
+    </section>
+                  
+
+
+<!-- documentaire -->
+<script>
+    fetch('http://127.0.0.1:8000/listdocumentaire/')
+      .then(response => response.json())
+      .then(data =>  {
+            console.log(data);
+            let data1="";
+            data.map((values)=>{
+                console.log(values);
+                data1+=` 
+            <div class="col" >
+            <a href='documentaire/${values.id}'><img src="${values.image}"></a>
+            <div class="card-overlay">
+                <div class="bookmark">
+                    <form method='POST' action="/add-watch-later/">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="documentaire">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;">
+                            <i class="fa-solid fa-bookmark White-link" ></i> 
+                        </button>
+                    </form>
+                </div>
+
+                <div class="rating">
+                    <form method='POST' action="/add-favourite/">
+                        {% csrf_token %}
+                        <input type='hidden' name='type' value="documentaire">
+                        <input type='hidden' name='id' value=${values.id}>
+                        <button type="submit" style="background-color: transparent; border:0px;"> 
+                            <i class="fa-regular fa-star"></i> 
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <h5 class='card-title text-center '>${values.title}</h5>
+            <p class='card-text text-center '>${values.producteur}</p>
+                    </div>`;
+                    // console.log(data1);
+            })
+            document.getElementById("documentaire").innerHTML=data1;
+        });
+            
+    </script>
+    
+    <section id="upcomingMovies">
+        <div class="Container">
+           <h2> Documentaire</h2>
+           <div class="row Movies" id="documentaire">
+               
+           </div>
+       </div>
+    </section>
+
+    <!-- <div class="alert">
+        {{messages}}
+    </div> -->
+
+
+
+    <script src="{% static '/videojs/video.min.js' %}"></script>
+
+
+            </div>
+            <!-- End of Main Content -->
+
+            
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        #footer{
+            background-color: #020314;
+            padding: 2% 5%;
+            color: white;
+            text-align: center;
+            height: 120px;
+        }
+        .fa-solid{
+            margin: 10px 10px;
+            cursor: pointer;
+        }
+        .fa-solid:hover{
+            color: cadetblue;
+        }
+        .fa-brands{
+            margin: 10px 10px;
+            cursor: pointer;
+        }
+        .fa-brands:hover{
+            color: cadetblue;
+        }
+        .footername{
+            color: coral;
+        }
+        .footername:hover{
+            text-decoration: none;
+            color: crimson;
+        }
+        .scroll{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: blueviolet;
+            background: rgb(52, 58, 64, 0.5);
+            /* line-height: 45px; */
+        }
+
+        .scroll:focus,
+        .scroll:hover{
+            color: whitesmoke;
+        }
+        .scroll:hover{
+            background-color: #343a40;
+        }
+        .scroll i{
+            font-weight: 800;
+        }
+
+    </style>
+  
+    <div class="bg-gradient-secondary" id="footer">
+        <div id="icon">
+            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+        <p>copyright &copy; 2022 <a href="index.html" class="footername">FlickPlay</a></p>
+    </div>
+
+    <div>
+        <a href="#" class="scroll">
+        <i class="fa-solid fa-angle-up center"></i>
+    </a>
+    </div>
+    
+    </div>
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script src="{% static '/videojs/video.min.js' %}"></script>
+
+
+</body>
+
+</html>

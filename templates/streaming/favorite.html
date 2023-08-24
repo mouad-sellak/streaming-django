@@ -1,0 +1,76 @@
+{% extends './bar.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #page-top{
+        background-color: #00010c;
+        /* margin-top: 5px; */
+    }
+    .container{
+        max-height: 90%;
+        border: 1px ;
+      }
+      h2{
+        margin-left: 2px;
+      }
+      
+      .container .col{
+        min-width: 350px;
+        height: 250px;
+        text-align: center;
+      }
+
+      img{
+    margin-right: 1%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    width:  280px;
+    height: 180px;
+    cursor: pointer;
+    box-shadow: -4px 4px 5px 0 #000;
+    transition: 0.8s;
+    border-radius: 6px;
+}
+.card-title{
+    color: #ffffff;
+    font-size: 15px;
+}
+.card-text {
+    color: #ffffff;
+    font-size: 12px;
+}
+      
+</style>
+
+<!-- {% if videoFavorit %} -->
+ <section id="favorite">
+    <div class="container">
+       <div class="row Movies"id="music">
+        console.log('items');
+       {{items}}
+       {{object_list}}
+    {% for item in object_list %}
+    console.log('item')
+    <div  >
+        <!-- <a href='http://127.0.0.1:8000/music/{{item.music.id}}'><img src={{video.image.url}}></a> -->
+        <h1 class='card-title text-center '> {{item.user}} </h1>
+        <p class='card-text text-center '> {{item.type}} </p>
+    </div>
+
+    <!--  -->
+       </div>  
+    {% endfor %}
+        </div>
+    </div>
+ </section>
+<!-- {% else %} -->
+
+
+
+<!-- {% endif %} -->
+
+
+
+
+{% endblock content %}

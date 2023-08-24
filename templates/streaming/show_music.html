@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Streaming - Dashboard</title>
+    <!-- fontawesone icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <!-- <link rel="stylesheet" href='{% static "/css/sb-admin-2.min.css" %}'/> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
+
+    <script src={% static ' ' %}> </script>
+    <style>
+      .video-screen{
+        width: 1000px;
+        height: 98vh;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      /* rating */
+    .rate > input {
+      display: none;
+    }
+    .rate > label{
+      float: right;
+    }
+    .rate > label:before {
+      display: inline-block;
+      font-size: 1.1rem;
+      font-family: FontAwesome;
+      content: "\f005";
+      margin: 0;
+      padding: 0.3rem .2rem;
+      cursor: pointer;
+    }
+    input:checked ~ label,  label:hover ~ label{
+      color: #ffb503;
+      /* color: #0000ff; */
+    }
+    input:checked + label:hover,input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+    label:hover ~ input:checked ~ label{
+      color: #cc9000;
+    }
+
+  </style>
+  
+  <script>
+    var el = ("[Log show music ]" , window.location.href.split("/").at(-1));
+    console.log(el);
+    console.log(typeof el);
+    var pk = parseInt(el);
+    console.log(typeof pk);
+    console.log(pk);
+    fetch('http://127.0.0.1:8000/musicdetail/'+pk)
+      .then(response => response.json())
+      .then(data =>  {
+        // console.log(data);
+        document.getElementById("play-video").innerHTML=
+        `<video class="video-screen" controls autoplay>
+        <source src='${data.vdeo}' type="video/mp4" />
+        </video> <br>`
+      });
+  </script>
+  </head>
+  
+<body id="page-top">
+
+  <!-- video bootstrap -->
+
+  <!-- <iframe src="././media/video/22/Timbuktu.mp4" title="Vimeo video" allowfullscreen></iframe> -->
+
+  <!-- end video bootstrap -->
+
+
+  <!-- Musique -->
+  <!-- <script> -->
+
+  <div class="container play-container">
+    <div class="cont">
+      <div class="play-video" >
+        <div id="play-video"></div>
+        <div class="tags">
+          <a href="">#Streaming1</a> <a href="">#Video1</a>
+        </div>
+        <h3> {{music.title}} </h3>
+        <h5>{{music.chanteur}}</h5>
+        <div class="play-video-info">
+          <p> {{music_views}} views &bull; 2 day ago</p>
+          <div class="icon">
+            <p>{{music.likes.count}}</p>
+            <form action="" method="post">
+              {% csrf_token %}
+              <!-- like  -->
+              {% if user_like_this_video %}
+                <button style="background-color: transparent; border:0px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="red" class="bi bi-heart-fill " viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                  </svg>
+                </button>
+                {{music.likes.count}}
+                {% else %}
+                <button style="background-color: transparent; border:0px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                  </svg>  
+                </button>
+                {{music.likes.count}}
+              {% endif %}
+              
+              <!-- dislike  -->
+              {% if user_dislike_this_video %}
+                <button style="background-color: transparent; border:0px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heartbreak-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.931.586 7 3l1.5 4-2 3L8 15C22.534 5.396 13.757-2.21 8.931.586ZM7.358.77 5.5 3 7 7l-1.5 3 1.815 4.537C-6.533 4.96 2.685-2.467 7.358.77Z"/>
+                  </svg> 
+                </button>
+                {{music.dislike.count}}
+                {% else %}
+                <button style="background-color: transparent; border:0px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heartbreak" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.867 14.41c13.308-9.322 4.79-16.563.064-13.824L7 3l1.5 4-2 3L8 15a38.094 38.094 0 0 0 .867-.59Zm-.303-1.01c6.164-4.4 6.91-7.982 6.22-9.921C14.031 1.37 11.447.42 9.587 1.368L8.136 3.18l1.3 3.468a1 1 0 0 1-.104.906l-1.739 2.608.971 3.237Zm-1.25 1.137a36.027 36.027 0 0 1-1.522-1.116C-5.077 4.97 1.842-1.472 6.454.293c.314.12.618.279.904.477L5.5 3 7 7l-1.5 3 1.815 4.537Zm-2.3-3.06C.895 7.797.597 4.875 1.308 3.248c.756-1.73 2.768-2.577 4.456-2.127L4.732 2.36a1 1 0 0 0-.168.991L5.91 6.943l-1.305 2.61a1 1 0 0 0-.034.818l.442 1.106Z"/>
+                  </svg> 
+                </button>
+                {{music.dislike.count}}
+              {% endif %}
+            </form>
+
+          <div class="rating">
+              <form method='POST' action="{% url 'submit_review_music' id=music.id%}">
+                  {% csrf_token %}
+                  <label> How do you rate this product?</label>
+                  <div class="rate">
+                    <input type='radio' name='rating' id="rating5" value="5" required />
+                    <label for="rating5" title="5"></label>
+                    <input type='radio' name='rating' id="rating4" value="4" required />
+                    <label for="rating4" title="4"></label>
+                    <input type='radio' name='rating' id="rating3" value="3" required />
+                    <label for="rating3" title="3"></label>
+                    <input type='radio' name='rating' id="rating2" value="2" required />
+                    <label for="rating2" title="2"></label>
+                    <input type='radio' name='rating' id="rating1" value="1" required />
+                    <label for="rating1" title="1"></label>
+                  </div> <br/> <br>
+
+                  Review:
+                  <textarea name="review" id="" cols="30" rows="4" class="form-control"></textarea>
+                  <br>
+                  <input type="Submit" value="Submit_Review" class="btn btn-primary">
+                  
+              </form>
+          </div>
+          Les reviews 
+            {% for review in reviews %}
+              <div class="media-body">
+                <h5 class="mt-0"> {{review.rating}} </h5>
+                {{review.review}}
+              </div>
+            {% endfor %}
+
+            
+
+
+            <!-- <a href=""><i class="fa-solid fa-thumbs-down"></i></a>{{Film.likes.count}} -->
+            <a href=""><i class="fa-solid fa-star"></i></a>Favorite
+            <!-- <a href=""><i class="fa-solid fa-bookmark"></i></a> -->
+            <a href=""><i class="fa-solid fa-clock"> </i></a>À regarder plus tard <br/> <br/>
+            <!-- <a href=""><i class="fa-regular fa-clock"></i></a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/> <br/>    <br/> <br/>
+
+    commentaire
+
+    <form method="POST" action="{% url 'comment_music' pk=music.pk %}">
+      {% csrf_token %}
+      <div class="form-group">
+       
+        <!-- {{form.commenter}} <br/> -->
+        {{form.body}}
+
+      </div>
+      <br/>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+     Les commentaires
+    {% for comment in comments %}
+      <div class="media-body">
+        <h5 class="mt-0"> {{comment.commenter}} </h5>
+        {{comment.body}}
+      </div>
+    {% endfor %}
+    
+    
+
+    <script src="{% static '/videojs/video.min.js' %}"></script>
+    
+  </div>
+  
+
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script src="js/demo/video.min.js"></script>
+    <!-- <script src="{% static '/videojs/video.min.js' %}"></script> -->
+
+
+</body>
+
+</html>

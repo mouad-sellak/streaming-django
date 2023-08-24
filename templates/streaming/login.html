@@ -1,0 +1,14 @@
+<h1 style="color: green;">   </h1>
+<center>
+    <form method="post" action="{% url 'register'%}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Entrez votre nom">
+        <br>
+        <br>
+        <input type="password" name="password" id="" placeholder="Entre votre password">
+        <br> <br>
+
+        <button type=""submit> Save </button>
+
+    </form>
+</center>

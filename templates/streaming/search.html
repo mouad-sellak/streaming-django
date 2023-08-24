@@ -1,0 +1,104 @@
+{% extends './bar.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #page-top{
+        background-color: #00010c;
+        /* margin-top: 5px; */
+    }
+    .container{
+        max-height: 90%;
+        border: 1px ;
+      }
+      h2{
+        margin-left: 2px;
+      }
+      
+      .container .col{
+        min-width: 350px;
+        height: 250px;
+        text-align: center;
+      }
+
+      img{
+    margin-right: 1%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    width:  280px;
+    height: 180px;
+    cursor: pointer;
+    box-shadow: -4px 4px 5px 0 #000;
+    transition: 0.8s;
+    border-radius: 6px;
+}
+.card-title{
+    color: #ffffff;
+    font-size: 15px;
+}
+.card-text {
+    color: #ffffff;
+    font-size: 12px;
+}
+#searches {
+    overflow: hidden;
+    display: block;
+    clear:both;
+}
+</style>
+
+
+{% if videos %}
+ <div id="searches" class="container">
+    <div class="container">
+       <div class="row Movies "id="music">
+    {% for video in videos %}
+        <div class="col " >
+            {% if video.type == "music" %}
+                    <div  >
+                        <a href='http://127.0.0.1:8000/music/{{video.id}}'><img src={{video.image.url}}></a>
+                        <h5 class='card-title text-center '>{{video.title}}</h5>
+                        <p class='card-text text-center '>{{video.chanteur}}</p>
+                    </div>
+            {% endif %}
+                     
+                
+
+            {% if video.type == "film" %}
+                <div  >
+                    <a href='http://127.0.0.1:8000/film/{{video.id}}'><img src={{video.image.url}}></a>
+                    <h5 class='card-title text-center '>{{video.title}}</h5>
+                    <p class='card-text text-center '>{{video.acteur}}</p>
+                </div>
+            {% endif %}  
+
+            {% if video.type == "serie" %}
+                <div  >
+                    <a href='http://127.0.0.1:8000/episode/{{video.id}}'><img src={{video.image.url}}></a>
+                    <h5 class='card-title text-center '>{{video.title}}</h5>
+                    <p class='card-text text-center '>{{video.Chaine}}</p>
+                </div>
+            {% endif %}  
+
+            {% if video.type == "documentaire" %}
+                <div class="" >
+                    <a href='http://127.0.0.1:8000/documentaire/{{video.id}}'><img src={{video.image.url}}></a>
+                    <h5 class='card-title text-center '>{{video.title}}</h5>
+                    <p class='card-text text-center '>{{video.Chaine}}</p>
+                </div>
+            {% endif %}  
+       </div>  
+    {% endfor %}
+        </div>
+    </div>
+ </div>
+{% else %}
+
+<h5> Video not found</h5>
+
+{% endif %}
+
+
+
+
+{% endblock content %}

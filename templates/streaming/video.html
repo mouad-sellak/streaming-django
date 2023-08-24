@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Streaming - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" href='{% static "/css/sb-admin-2.min.css" %}'/>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+
+    <script src={% static ' ' %}> </script>
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+  <!-- Musique -->
+  {% if %}
+    <div class="container">
+        
+    <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}" >
+    
+    <source src='{{m.vdeo.url}}' type="video/mp4" />
+    <source src='{{m.vdeo.url}}' type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"> supports HTML5 video</a>
+    </p>
+    </video>
+  </div>
+
+  <!-- Film -->
+  {% elif %}
+  <div class="container">
+        <div class="styl">
+    <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}" >
+    
+    <source src='{{f.vdeo.url}}' type="video/mp4" />
+    <source src='{{f.vdeo.url}}' type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"> supports HTML5 video</a>
+    </p>
+    </video>
+    
+  </div>
+  </div>
+
+  {% endif %}
+
+
+  <script>
+
+// Masquer les contrôles natifs
+const video = document.getElementById('video');
+const videoControls = document.getElementById('video-controls');
+
+const videoWorks = !!document.createElement('video').canPlayType;
+if (videoWorks) {
+  video.controls = false;
+  videoControls.classList.remove('hidden');
+}
+  </script>
+
+
+
+
+
+  <div class="video-controls hidden" id="video-controls">
+    <!-- Custom controls are defined here -->
+    </div>
+
+    <video controls class="video" id="video" preload="metadata" poster="poster.jpg">
+      <source src="video.mp4" type="video/mp4"></source>
+    </video>
+
+    <!-- Masquer les contrôles natifs -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static '/videojs/video.min.js' %}"></script>
+</div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script src="js/demo/video.min.js"></script>
+    <!-- <script src="{% static '/videojs/video.min.js' %}"></script> -->
+
+
+</body>
+
+</html>

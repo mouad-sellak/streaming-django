@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Profile Card </title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<style>
+    .container{
+      position: absolute;
+      max-width: 600px;
+      height: 400px;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .myLeftCtn{
+      position: relative;
+      background-image: linear-gradient(45deg, #f046ff, #9b00e8);
+      border-radius: 25px;
+      height: 100%;
+      padding: 25px;
+      color: rgb(192, 192, 192);
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .myRightCtn{
+      position: relative;
+      background: #fff;
+      border-radius: 25px;
+      height: 100%;
+      padding: 25px;
+      padding-left: 50px;
+    }
+    .myRightCtn header {
+      color: blueviolet;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .row {
+      height: 100%;
+    }
+    .myCard {
+      position: relative;
+      background: #fff;
+      height: 100%;
+      border-radius: 25px;
+      -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+      -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+    }
+    .myLeftCtn header {
+      color: #fff;
+      font-size: 44px;
+    }
+    .box {
+      position: relative;
+      margin: 20px;
+      margin-bottom: 100px;
+    }
+    .myRightCtn input {
+      width: 230px;
+      border-radius: 25px;
+      padding: 10px;
+      padding-left: 50px;
+      border: none;
+      -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+      -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+
+    }
+    .myRightCtn input:focus {
+      outline: none;
+    }
+    form {
+      position: relative;
+      /* margin-top: 50px; */
+    }
+    .myRightCtn button {
+      background: linear-gradient(45deg, #bb36fd, #9b00e8);
+      color: #fff;
+      width: 230px;
+      border: none;
+      border-radius: 25px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .myRightCtn button:hover {
+      background: linear-gradient(45deg, #c85bff, #b726ff);
+    }
+    .myRightCtn button:focus {
+      outline: none;
+    }
+    
+  </style>
+
+
+</head>
+<body class="bg-light">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <div class="container">
+        <div class="myCard">
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="myLeftCtn">
+                  <div class="box">
+                      <!-- <header>  Bienvenue sur Streaming  </header> -->
+                      <div class="card-block text-center text-white">
+                          <i class="fas fa-user-tie fa-10x mt-5"> </i>
+                          <h2 class="font-weight-blod mt-4">{{user.username}}</h2>
+                          <!-- <p>Web Designer </p> -->
+                          <a href="{% url 'profil_update' %}"><i class="far fa-edit fa-2x mb-4 text-white"> </i></a>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+
+              <div class="col-md-4">
+                  <div class="myRightCtn" >
+                      <div>
+                          <h3 class="mt-3 text-center"> Information </h3>
+                          <hr class="badge-primary mt-0 w-25">
+                          <div class="row">
+                              <div class="col-sm-6">
+                                  <p class="font-weight-blod"> Name: </p>
+                                  <h6 class="text-muted"> {{user.username}} </h6> </br>
+                              </div> 
+                              <div class="col-sm-6">
+                                  <p class="font-weight-blod"> Email: </p>
+                                  <h6 class="text-muted"> {{user.email}} </h6>
+                              </div>
+                              <!-- vous pouvez complete votre <a href=""> profile </a>   -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
