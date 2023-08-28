@@ -131,6 +131,7 @@ class Video(models.Model):
     likes = models.ManyToManyField(User, blank=True,related_name='%(class)s_like')
     dislike = models.ManyToManyField(User,blank=True,related_name='%(class)s_dislike')
     view_count = models.IntegerField(validators=[MaxValueValidator(9999999999)],default=0)
+    metteurscene = models.CharField(max_length=50, null=True)
     
     
     class Meta:
@@ -270,9 +271,33 @@ class ReviewRating(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
-    def __str__(self):
-        return self.user.__str__()
+class Chaine(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    role = models.CharField(max_length=50, null=True)
+    musics=models.ForeignKey(Music,on_delete=models.CASCADE, null=True)
+    films=models.ForeignKey(Film,on_delete=models.CASCADE, null=True)
+    episodes=models.ForeignKey(Episode,on_delete=models.CASCADE, null=True)
+    documentaires=models.ForeignKey(Documentaire,on_delete=models.CASCADE, null=True)
+   
 
+
+    def __str__(self):
+        return self.role
+
+
+class HistoriqueVisionnage(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    musics=models.ForeignKey(Music,on_delete=models.CASCADE, null=True)
+    films=models.ForeignKey(Film,on_delete=models.CASCADE, null=True)
+    episodes=models.ForeignKey(Episode,on_delete=models.CASCADE, null=True)
+    documentaires=models.ForeignKey(Documentaire,on_delete=models.CASCADE, null=True)
+    date_visionage = models.DateField(null=True)
+    duree = models.CharField(max_length=50, null=True)
+
+
+
+    def __str__(self):
+        return self.date_visionage
 
 # class Review(models.Model):
 #     product = models.ForeignKey(Product, on_delete=models.CASCADE)

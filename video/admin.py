@@ -21,5 +21,7 @@ admin.site.register(WatchLater)
 admin.site.register(Comment)
 admin.site.register(Profile)
 admin.site.register(ReviewRating,ReviewAdmin)
+admin.site.register(Chaine)
+admin.site.register(HistoriqueVisionnage)
 
 

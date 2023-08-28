@@ -100,9 +100,9 @@ LOGIN_URL = "account_login"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'streamingdb',
+        'NAME':'streamingdb',
         'USER': 'postgres',
-        'PASSWORD': 'postgre123',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
     }
