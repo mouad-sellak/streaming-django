@@ -344,7 +344,7 @@ def showmusic(request, pk):
     comments = music.commentsMusic.all()
     reviews = music.reviewMusic.all()
 
-    return render(request, 'streaming/show_music.html', {'music': music,'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video, 'reviews':reviews, 'music_views':music_views})
+    return render(request, 'streaming/show_music.html', {'music': music, 'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video, 'reviews':reviews, 'music_views':music_views})
 
 def commentMusic(request, pk):
     music = Music.objects.get(pk=pk)
@@ -404,6 +404,8 @@ def submit_review_music(request, id):
 
 def showfilm(request, pk):
     film = Film.objects.get(pk=pk)
+    genre = film.genre
+    related_films = Film.objects.filter(genre=genre).exclude(pk=pk)
     if request.method == 'GET' :
         film.view_count+=1
         film.save()
@@ -441,7 +443,7 @@ def showfilm(request, pk):
 
     # film_views = ViewCount.objects.filter(film=film).count()
 
-    return render(request, 'streaming/show_film.html', {'film': film,'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video,'reviews':reviews})
+    return render(request, 'streaming/show_film.html', {'film': film,'related_films': related_films, 'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video,'reviews':reviews})
     # 'film_views':film_views
 
 
@@ -521,6 +523,8 @@ def submit_review_film(request, id):
 
 def showepisode(request, pk):
     episode = Episode.objects.get(pk=pk)
+    serie_id=episode.serie
+    related_episodes = Episode.objects.filter(serie_id=serie_id).exclude(pk=pk)
     if request.method == 'GET' :
         episode.view_count+=1
         episode.save()
@@ -556,7 +560,7 @@ def showepisode(request, pk):
     comments = episode.commentsEpisode.all()
     reviews = episode.reviewEpisode.all()
 
-    return render(request, 'streaming/show_episode.html',{'episode': episode,'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video, 'reviews':reviews,'episode_views':episode_views})
+    return render(request, 'streaming/show_episode.html',{'episode': episode,'related_episodes': related_episodes,'form':form, 'comments': comments, 'user_like_this_video':user_like_this_video,'user_dislike_this_video':user_dislike_this_video, 'reviews':reviews,'episode_views':episode_views})
 
 def commentEpisode(request, pk):
     episode = Episode.objects.get(pk=pk)

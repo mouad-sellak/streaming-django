@@ -181,10 +181,16 @@
 <style>
     
   video{
-      height: 460px;
-      width: 1000px;
+      height: 300px;
+      width: 700px;
       margin-top: 20px;
   }
+
+    .related-episodes img {
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease-in-out;
+    }
 
 </style>
 
@@ -199,6 +205,22 @@
         <div class="tags">
           <a href="">#Streaming1</a> <a href="">#Video1</a>
         </div>
+        {% if related_episodes %}
+        <h2>Episodes similaires</h2>
+        <div>
+          <ul style="list-style-type: none">
+            {% for related in related_episodes %}
+            <li style="display: inline-block; margin-right: 10px;">
+              <a href="http://127.0.0.1:8000/episode/{{ related.id }}">
+                <img src="{{ related.image.url }}" alt="{{ related.title }}" width="150" height="100">
+              </a>
+              <br/>
+              {{ related.title }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
         <h3> {{episode.title}} </h3>
         <h5> {{episode.serie.acteur}} </h5>
         <div class="play-video-info">

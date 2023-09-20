@@ -86,11 +86,11 @@ class Profile(models.Model):
         ('Guidimaka  ','Guidimaka  '),
         ('Nouadhibou ','Nouadhibou '),
         ('Adrar ','Adrar '),
-        ('Zouérate','Zouérate'),
+        ('Zouerate','Zouerate'),
         ('Inchiri ','Inchiri '),
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    Téléphone = models.CharField(max_length=500, blank=True)
+    Telephone = models.CharField(max_length=500, blank=True)
     ville = models.CharField(choices=villes,max_length=100, null=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -108,7 +108,7 @@ class Profile(models.Model):
 # Create your models here.
 class Video(models.Model):
     Type_video = [ 
-        ('serie','Série'),
+        ('serie','Serie'),
         ('documentaire','Documentaire'),
         ('film','Film'),
         ('music','Music'),
@@ -116,7 +116,7 @@ class Video(models.Model):
 
     title = models.CharField(max_length=100,  null=True)
     description = models.TextField(max_length=100, null=True, default='', blank=True)
-    date_création = models.DateField(null=True)
+    date_creation = models.DateField(null=True)
     date_ajout = models.DateField(null=True)
     date_modification = models.DateField(null=True)
     type = models.CharField(choices=Type_video,max_length=100, default='serie', null=True)
@@ -125,7 +125,7 @@ class Video(models.Model):
     resolution = models.CharField(max_length=100, null=True)
     Url = models.URLField(max_length=100, null=True)
     taille = models.CharField(max_length=100, null=True)
-    vdeo = models.FileField(upload_to = "video/%y", null=True, verbose_name="vidéo")
+    vdeo = models.FileField(upload_to = "video/%y", null=True, verbose_name="video")
     image = models.ImageField(upload_to = "image/%y", null=True, verbose_name="Image")
     uuid=models.UUIDField(default = uuid.uuid4, editable=False)
     likes = models.ManyToManyField(User, blank=True,related_name='%(class)s_like')
@@ -157,7 +157,7 @@ class Film(Video):
     
     Genre = [ 
     ('action','Action'),
-    ('comedie','comédie'),
+    ('comedie','comedie'),
     ('histoire','Histoire'),
     ('drame','Drame'),
     ('aventure','aventure'),
@@ -173,7 +173,7 @@ class Serie(models.Model):
     title = models.CharField(max_length=100, null=True)
     Genre = [ 
     ('action','Action'),
-    ('comedie','comédie'),
+    ('comedie','comedie'),
     ('histoire','Histoire'),
     ('drame','Drame'),
     ('aventure','aventure'),

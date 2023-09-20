@@ -54,6 +54,11 @@ INSTALLED_APPS = [
     # 'django.contrib.sites',
 ]
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
 SITE_ID = 1
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -99,14 +104,15 @@ LOGIN_URL = "account_login"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'streamingdb',
-        'USER': 'postgres',
-        'PASSWORD': 'postgre123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'streamingdb', 
+        'USER': 'root',  
+        'PASSWORD': '',  
+        'HOST': 'localhost',  
+        'PORT': '3307', 
     }
 }
+
 
 
 
