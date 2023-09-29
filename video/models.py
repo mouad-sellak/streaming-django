@@ -1,22 +1,11 @@
-from calendar import c
-from distutils.command.upload import upload
-from ipaddress import ip_address
-from tkinter import CASCADE
-from turtle import update
-from polymorphic.models import PolymorphicModel
 from django.core.validators import MaxValueValidator 
-from django.db.models import IntegerField
 # from typing import Type
 from django.db import models
 import uuid
 from django.contrib.auth.models import User 
 
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin  
-from django.utils import timezone  
 
 
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 #?--------------------------------------
 #? adding a custom queryset for video :
 #?--------------------------------------

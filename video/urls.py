@@ -55,6 +55,8 @@ urlpatterns = [
     path('episodedetail/<int:pk>', episodedetail, name='episode_detail'),
     path('seriedetail/<int:pk>', seriedetail, name='serie_detail'),
 
+    path('createchaine', create_chaine, name='create_chaine'),
+
     # path('views/', CountView, name='Number_Visite'),
 
     path('music/<int:pk>', showmusic, name='music'),

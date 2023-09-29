@@ -85,9 +85,106 @@ def favorite(request):
 class FavouriteVideo(LoginRequiredMixin, ListView):
     model = Favorite
     template_name = 'streaming/favorite_list.html'
+def get_people_involved():
+    people_involved = []
 
+    # Récupérer les réalisateurs des films
+    film_directors = Film.objects.values_list('realisateur', flat=True).distinct()
+    people_involved.extend(film_directors)
+
+    # Récupérer les acteurs des films
+    film_actors = Film.objects.values_list('acteur', flat=True).distinct()
+    people_involved.extend(film_actors)
+
+    # Récupérer les metteurs en scène des films
+    film_directors = Film.objects.values_list('metteurscene', flat=True).distinct()
+    people_involved.extend(film_directors)
+
+    # Récupérer les réalisateurs des séries
+    serie_directors = Serie.objects.values_list('realisateur', flat=True).distinct()
+    people_involved.extend(serie_directors)
+
+    # Récupérer les acteurs des séries
+    serie_actors = Serie.objects.values_list('acteur', flat=True).distinct()
+    people_involved.extend(serie_actors)
+
+    # Récupérer les metteurs en scène des séries
+    serie_directors = Serie.objects.values_list('metteurscene', flat=True).distinct()
+    people_involved.extend(serie_directors)
+
+    # Récupérer les chanteurs des musiques
+    music_singers = Music.objects.values_list('chanteur', flat=True).distinct()
+    people_involved.extend(music_singers)
+
+    # Récupérer les metteurs en scène des musiques
+    music_directors = Music.objects.values_list('metteurscene', flat=True).distinct()
+    people_involved.extend(music_directors)
+
+    # Récupérer les metteurs en scène des documentaires
+    documentary_directors = Documentaire.objects.values_list('metteurscene', flat=True).distinct()
+    people_involved.extend(documentary_directors)
+
+    # Récupérer les metteurs en scène des épisodes
+    episode_directors = Episode.objects.values_list('metteurscene', flat=True).distinct()
+    people_involved.extend(episode_directors)
+
+    # Supprimer les valeurs nulles et doublons de la liste
+    people_involved = list(filter(None, people_involved))
+    people_involved = list(set(people_involved))
+
+    return people_involved
     
+def create_chaine(self):
+    # Liste pour stocker les vidéos auxquelles la personne a participé
+    chaine_videos = []
 
+    user = "Abderrahmane Sissako"
+
+    # Récupérer toutes les vidéos auxquelles la personne a participé en tant que réalisateur
+    films_realises = Film.objects.filter(realisateur=user)
+    #series_realises = Serie.objects.filter(realisateur=user)
+    documentaires_realises = Documentaire.objects.filter(realisateur=user)
+
+    # Récupérer toutes les vidéos auxquelles la personne a participé en tant qu'acteur
+    films_acteur = Film.objects.filter(acteur=user)
+    #series_acteur = Serie.objects.filter(acteur=user)
+    documentaires_acteur = Documentaire.objects.filter(acteur=user)
+
+    # Ajouter les vidéos aux listes
+    chaine_videos.extend(films_realises)
+    #chaine_videos.extend(series_realises)
+    chaine_videos.extend(documentaires_realises)
+    chaine_videos.extend(films_acteur)
+    #chaine_videos.extend(series_acteur)
+    chaine_videos.extend(documentaires_acteur)
+
+    # Récupérer les épisodes liés aux séries
+    # for serie in series_realises:
+    #     chaine_videos.extend(serie.episodes.all())
+
+    # for serie in series_acteur:
+    #     chaine_videos.extend(serie.episodes.all())
+
+    # Récupérer les musiques auxquelles la personne a participé en tant que chanteur
+    musiques_chanteur = Music.objects.filter(chanteur=user)
+
+    # Ajouter les musiques à la liste
+    chaine_videos.extend(musiques_chanteur)
+
+    # Tri des vidéos par date de création (ou autre critère de tri)
+    chaine_videos.sort(key=lambda x: x.date_creation, reverse=True)
+
+    return chaine_videos
+
+def view_chaine(request, username):
+    # Récupérer l'utilisateur en fonction du nom d'utilisateur (username)
+    user_profile = Profile.objects.get(user__username=username)
+
+    # Appeler la méthode create_chaine pour obtenir la liste des vidéos de l'utilisateur
+    chaine_videos = create_chaine(user_profile.user)
+
+    # Vous pouvez maintenant passer chaine_videos à votre template pour l'affichage
+    return render(request, 'nom_de_votre_template.html', {'chaine_videos': chaine_videos})
 
 def watch_later(request):
     if request.method=='POST':
